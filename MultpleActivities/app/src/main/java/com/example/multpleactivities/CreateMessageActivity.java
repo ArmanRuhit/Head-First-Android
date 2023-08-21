@@ -32,7 +32,9 @@ public class CreateMessageActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, message);
-                startActivity(intent);
+
+                Intent chosenIntent = Intent.createChooser(intent, "Select App to send message");
+                startActivity(chosenIntent);
             }
         });
     }
