@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Layout_Example</string>
+    <string name="to">To</string>
+    <string name="message">Enter your message</string>
+    <string name="email">Enter your email</string>
+    <string name="send">Send</string>
 </resources>
