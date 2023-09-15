@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Startbuzz</string>
+    <string name="starbuzz_logo">Starbuzz logo</string>
+    <string-array name="options">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Stores</item>
+    </string-array>
+    
+    <string-array name="drink_options">
+        <item>Caoouccino</item>
+        <item>Filter</item>
+        <item>Latte</item>
+    </string-array>
 </resources>
