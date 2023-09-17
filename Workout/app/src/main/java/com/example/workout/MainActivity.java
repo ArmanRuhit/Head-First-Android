@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .setReorderingAllowed(true)
-                    .add(R.id.detail_frag, WorkoutDetailFragment.class, null)
+                    .add(R.id.detail_frag, new WorkoutDetailFragment(), null)
                     .commit();
         }
     }
