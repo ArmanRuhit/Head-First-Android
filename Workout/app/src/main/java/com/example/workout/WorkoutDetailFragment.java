@@ -37,14 +37,19 @@ public class WorkoutDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_workout_detail, container, false);
-        // Sample data for the list
-        String[] items = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
-
-        // Create an ArrayAdapter to display the items in the ListView
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
-
-        ListView listView = view.findViewById(R.id.list123);
-        listView.setAdapter(adapter);
+        TextView titleTextView = view.findViewById(R.id.title);
+        TextView descriptionTextView = view.findViewById(R.id.description);
+        Workout workout = Workout.workouts[(int) workoutId];
+        titleTextView.setText(null);
+        if(titleTextView.getText() .equals(""))
+            titleTextView.setText(workout.getName());
+        descriptionTextView.setText(workout.getDescription());
+        descriptionTextView.setText(null);
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 }

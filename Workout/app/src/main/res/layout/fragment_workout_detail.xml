@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text= ""
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/title"/>
+        android:id="@+id/title"
+        android:layout_marginTop="20px"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,11 +20,5 @@
 
         android:text= ""
         android:id="@+id/description"/>
-
-    <ListView
-        android:id="@+id/list123"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 
 </LinearLayout>

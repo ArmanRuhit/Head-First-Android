@@ -10,16 +10,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        WorkoutDetailFragment workoutDetailFragment = (WorkoutDetailFragment) getSupportFragmentManager().findFragmentById(R.id.detail_frag);
-
-        workoutDetailFragment.setWorkoutId(1);
-
+        WorkoutDetailFragment workoutDetailFragment = new WorkoutDetailFragment();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .setReorderingAllowed(true)
-                    .add(R.id.detail_frag, new WorkoutDetailFragment(), null)
+                    .add(R.id.detail_frag, workoutDetailFragment, null)
                     .commit();
+            workoutDetailFragment.setWorkoutId(2);
         }
     }
 }
