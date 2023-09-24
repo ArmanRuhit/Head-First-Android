@@ -15,11 +15,10 @@
         class="com.example.workout.WorkoutListFragment"
         />
 
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/detail_frag"
-        class="com.example.workout.WorkoutDetailFragment"
+        android:id="@+id/detail_frag_container"
         android:layout_weight="3"/>
 
 </LinearLayout>
