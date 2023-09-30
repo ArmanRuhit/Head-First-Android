@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class StopwatchFragment extends Fragment {
+public class StopwatchFragment extends Fragment implements View.OnClickListener{
 
     private int seconds = 0;
     private boolean running;
@@ -28,9 +28,6 @@ public class StopwatchFragment extends Fragment {
     public StopwatchFragment() {
         // Required empty public constructor
     }
-
-
-
 
 
     @Override
@@ -56,9 +53,9 @@ public class StopwatchFragment extends Fragment {
         stop = layout.findViewById(R.id.stop_button);
         reset = layout.findViewById(R.id.reset_button);
 
-        start.setOnClickListener(onClickStartListener());
-        stop.setOnClickListener(onClickStopListener());
-        reset.setOnClickListener(onClickResetListener());
+        start.setOnClickListener(this);
+        stop.setOnClickListener(this);
+        reset.setOnClickListener(this);
 
         runtimer(layout);
         return layout;
@@ -73,7 +70,7 @@ public class StopwatchFragment extends Fragment {
                 int hours = seconds/3600;
                 int min = seconds/60;
                 int secs = seconds%60;
-                String time = String.format("$d:%02d:%02d", hours, min, secs);
+                String time = String.format("%d:%02d:%02d", hours, min, secs);
 
                 timeView.setText(time);
                 if(running){
@@ -106,36 +103,30 @@ public class StopwatchFragment extends Fragment {
         outState.putBoolean("wasRunning", wasRunning);
     }
 
-
-
-    View.OnClickListener onClickStartListener(){
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                running = true;
-            }
-        };
-    }
-
-    View.OnClickListener onClickStopListener(){
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                running = false;
-            }
-        };
-    }
-
-    View.OnClickListener onClickResetListener(){
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                running = false;
-                seconds = 0;
-            }
-        };
+    public void onClickStart(View view) {
+        running = true;
     }
 
 
+    public void onClickStop(View view) {
+        running = false;
+    }
 
+
+    public void onClickReset(View view) {
+        running = false;
+        seconds = 0;
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.start_button) {
+            onClickStart(view);
+        } else if(view.getId() == R.id.stop_button) {
+            onClickStop(view);
+        } else if(view.getId() == R.id.reset_button) {
+                onClickReset(view);
+        }
+    }
 }
